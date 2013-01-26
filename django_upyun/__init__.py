@@ -97,7 +97,13 @@ class UpYunStorage(Storage):
 
     def _read(self, name):
         url = self._endpoint(name)
-        return self._request('GET', url).content
+        resp = self._request('GET', url)
+        if resp.status_code == 200:
+            return resp.content
+        elif resp.status_code == 404:
+            raise IOError("File not found")
+        else:
+            raise IOError("UpYunStorageError: Unknown Error when read file, code %s" % resp.status_code)
 
     def url(self, name):
         return name

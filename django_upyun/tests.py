@@ -29,3 +29,8 @@ class ApiTest(TestCase):
 
         # self.storage.delete(name)
         # self.assertFalse(self.storage.exists(name))
+
+    def test_404(self):
+        name = "__404__"
+        file = self.storage.open(name)
+        self.assertRaises(IOError, lambda: file.read())
