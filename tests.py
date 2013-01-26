@@ -25,7 +25,11 @@ def main():
             }
         },
         ROOT_URLCONF='beproud.django.authutils.tests.test_urls',
-        DEFAULT_FILE_STORAGE = 'django_upyun.UpYunStorage'
+        DEFAULT_FILE_STORAGE = 'django_upyun.UpYunStorage',
+        UPYUN_ACCOUNT=os.getenv('UPYUN_ACCOUNT'),
+        UPYUN_PASSWORD=os.getenv('UPYUN_PASSWORD'),
+        UPYUN_BUCKET=os.getenv('UPYUN_BUCKET'),
+        MEDIA_URL="http://%s.b0.upaiyun.com/" % os.getenv('UPYUN_BUCKET'),
     )
 
     from django.test.utils import get_runner
