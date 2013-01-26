@@ -12,6 +12,8 @@ setup(
     author="Baye Wayly",
     author_email="havelove@gmail.com",
     url="https://github.com/waylybaye/django-upyun",
+    tests_require=['Django', 'python-dateutil', 'requests'],
+    test_suite='tests.main',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Environment :: Web Environment',
