@@ -7,6 +7,7 @@ version = __import__('django_upyun').__version__
 
 setup(
     name="django-upyun-storage",
+    description="django storage for upyun.com",
     packages=['django_upyun'],
     version=version,
     author="Baye Wayly",
