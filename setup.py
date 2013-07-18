@@ -6,12 +6,14 @@ except ImportError:
 version = __import__('django_upyun').__version__
 
 setup(
-    name="django-upyun",
+    name="django-upyun-storage",
     packages=['django_upyun'],
     version=version,
     author="Baye Wayly",
-    author_email="havelove@gmail.com",
+    author_email="baye@wayly.net",
     url="https://github.com/waylybaye/django-upyun",
+    install_requires=["requests", "python-dateutil"],
+    license="MIT",
     tests_require=['Django', 'python-dateutil', 'requests'],
     test_suite='tests.main',
     classifiers=[
@@ -19,7 +21,6 @@ setup(
         'Environment :: Web Environment',
         'Framework :: Django',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: BSD License',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
         'Topic :: Utilities',
