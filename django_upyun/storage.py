@@ -88,7 +88,7 @@ class UpYunStorage(Storage):
             raise IOError("UpYunStorageError: Unknown Error when read file, code %s" % resp.status_code)
 
     def url(self, name):
-        return name
+        return 'http://%s.b0.upaiyun.com/%s' % (self.bucket, name)
 
 
 class UpYunFile(File):
