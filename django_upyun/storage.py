@@ -7,7 +7,7 @@ import requests
 try:
     from cStringIO import StringIO
 except ImportError:
-    from StringIO import StringIO
+    from io import StringIO
 
 
 class UpYunStorage(Storage):
@@ -88,7 +88,7 @@ class UpYunStorage(Storage):
             raise IOError("UpYunStorageError: Unknown Error when read file, code %s" % resp.status_code)
 
     def url(self, name):
-        return 'http://%s.b0.upaiyun.com/%s' % (self.bucket, name)
+        return settings.UPYUN_URL + name
 
 
 class UpYunFile(File):
